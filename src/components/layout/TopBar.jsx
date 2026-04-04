@@ -70,7 +70,7 @@ const TopBar = ({ toggleSidebar }) => {
                width: '38px',
                height: '38px',
                borderRadius: '12px',
-               background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
+               background: 'var(--gradient-accent)',
                color: '#fff',
                display: 'flex',
                alignItems: 'center',
@@ -82,7 +82,7 @@ const TopBar = ({ toggleSidebar }) => {
               {admin?.email?.charAt(0).toUpperCase()}
            </div>
            <div className="topbar-profile-text">
-              <p style={{ fontSize: '13px', fontWeight: '700', color: '#e0e7ff' }}>College Interface</p>
+              <p style={{ fontSize: '13px', fontWeight: '700', color: '#f4f4f5' }}>College Interface</p>
               <p style={{ fontSize: '11px', color: '#94a3b8' }}>{admin?.email}</p>
            </div>
 
@@ -110,7 +110,7 @@ const TopBar = ({ toggleSidebar }) => {
                    <p style={{ fontSize: '11px', color: '#94a3b8' }}>College Interface session</p>
                 </div>
                 <div style={{ padding: '8px' }}>
-                   <button type="button" onClick={handleLogout} disabled={loading} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '12px', padding: '12px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', cursor: loading ? 'wait' : 'pointer', color: '#fca5a5', borderRadius: '10px', fontSize: '13px', transition: 'background 0.2s' }} onMouseEnter={(e) => !loading && (e.currentTarget.style.background = 'rgba(239,68,68,0.2)')} onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(239,68,68,0.1)')}>
+                   <button type="button" onClick={handleLogout} disabled={loading} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '12px', padding: '12px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', cursor: loading ? 'wait' : 'pointer', color: '#d4d4d8', borderRadius: '10px', fontSize: '13px', transition: 'background 0.2s' }} onMouseEnter={(e) => !loading && (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')} onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}>
                       <LogOut size={16} />
                       {loading ? 'Processing...' : 'Secure Sign Out'}
                    </button>

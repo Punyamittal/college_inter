@@ -1,92 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
 
 :root {
-  /* ----- Brand scale (indigo) ----- */
-  --palette-indigo-950: #1e1b4b;
-  --palette-indigo-900: #312e81;
-  --palette-indigo-800: #3730a3;
-  --palette-indigo-700: #4338ca;
-  --palette-indigo-600: #4f46e5;
-  --palette-indigo-500: #6366f1;
-  --palette-indigo-400: #818cf8;
-  --palette-indigo-300: #a5b4fc;
-  --palette-indigo-200: #c7d2fe;
-  --palette-indigo-100: #e0e7ff;
-  --palette-indigo-50: #eef2ff;
+  /* ----- Neutral zinc scale (legacy “indigo” names = grey ramp) ----- */
+  --palette-indigo-950: #09090b;
+  --palette-indigo-900: #18181b;
+  --palette-indigo-800: #27272a;
+  --palette-indigo-700: #3f3f46;
+  --palette-indigo-600: #52525b;
+  --palette-indigo-500: #71717a;
+  --palette-indigo-400: #a1a1aa;
+  --palette-indigo-300: #d4d4d8;
+  --palette-indigo-200: #e4e4e7;
+  --palette-indigo-100: #f4f4f5;
+  --palette-indigo-50: #fafafa;
 
-  /* ----- Secondary accents ----- */
-  --palette-violet-600: #7c3aed;
-  --palette-violet-500: #8b5cf6;
-  --palette-violet-400: #a78bfa;
-  --palette-fuchsia-500: #d946ef;
-  --palette-fuchsia-400: #e879f9;
-  --palette-cyan-500: #06b6d4;
-  --palette-cyan-400: #22d3ee;
-  --palette-sky-500: #0ea5e9;
-  --palette-sky-400: #38bdf8;
-  --palette-teal-500: #14b8a6;
-  --palette-teal-400: #2dd4bf;
-  --palette-emerald-600: #059669;
-  --palette-emerald-500: #10b981;
-  --palette-emerald-400: #34d399;
-  --palette-amber-600: #d97706;
-  --palette-amber-500: #f59e0b;
-  --palette-amber-400: #fbbf24;
-  --palette-rose-600: #e11d48;
-  --palette-rose-500: #f43f5e;
-  --palette-rose-400: #fb7185;
+  /* ----- Extra greys (charts / secondary slots) ----- */
+  --palette-violet-600: #404040;
+  --palette-violet-500: #525252;
+  --palette-violet-400: #737373;
+  --palette-fuchsia-500: #a3a3a3;
+  --palette-fuchsia-400: #d4d4d4;
+  --palette-cyan-500: #525252;
+  --palette-cyan-400: #a3a3a3;
+  --palette-sky-500: #64748b;
+  --palette-sky-400: #94a3b8;
+  --palette-teal-500: #57534e;
+  --palette-teal-400: #78716c;
+  --palette-emerald-600: #3f3f46;
+  --palette-emerald-500: #71717a;
+  --palette-emerald-400: #d4d4d8;
+  --palette-amber-600: #525252;
+  --palette-amber-500: #737373;
+  --palette-amber-400: #a3a3a3;
+  --palette-rose-600: #27272a;
+  --palette-rose-500: #404040;
+  --palette-rose-400: #71717a;
 
-  /* ----- Semantic (app-wide) ----- */
-  --color-success: var(--palette-emerald-500);
-  --color-success-soft: #ecfdf5;
-  --color-success-foreground: #047857;
-  --color-warning: var(--palette-amber-500);
-  --color-warning-soft: #fffbeb;
-  --color-warning-foreground: #b45309;
-  --color-danger: #ef4444;
-  --color-danger-soft: #fef2f2;
-  --color-danger-foreground: #b91c1c;
-  --color-info: var(--palette-sky-500);
-  --color-info-soft: #f0f9ff;
-  --color-info-foreground: #0369a1;
-  --color-neutral-soft: #f8fafc;
+  /* ----- Semantic (grey / black / white only, light surfaces) ----- */
+  --color-success: #3f3f46;
+  --color-success-soft: #f4f4f5;
+  --color-success-foreground: #18181b;
+  --color-warning: #52525b;
+  --color-warning-soft: #e4e4e7;
+  --color-warning-foreground: #27272a;
+  --color-danger: #27272a;
+  --color-danger-soft: #e4e4e7;
+  --color-danger-foreground: #09090b;
+  --color-info: #52525b;
+  --color-info-soft: #f4f4f5;
+  --color-info-foreground: #27272a;
+  --color-neutral-soft: #fafafa;
 
-  /* ----- Legacy aliases (light surfaces) ----- */
+  /* ----- Legacy aliases (light UI) ----- */
   --primary: var(--palette-indigo-950);
   --primary-light: var(--palette-indigo-900);
-  --accent: var(--palette-indigo-500);
-  --accent-light: var(--palette-indigo-400);
+  --accent: var(--palette-indigo-600);
+  --accent-light: var(--palette-indigo-500);
   --success: var(--color-success);
   --danger: var(--color-danger);
   --warning: var(--color-warning);
 
   /* ----- Surfaces (light) ----- */
   --surface-0: #ffffff;
-  --surface-1: #f8fafc;
-  --surface-2: #f1f5f9;
-  --surface-3: #e2e8f0;
+  --surface-1: #fafafa;
+  --surface-2: #f4f4f5;
+  --surface-3: #e4e4e7;
   --bg-app: var(--surface-1);
   --bg-sidebar: var(--palette-indigo-950);
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --text-faint: #94a3b8;
-  --text-subtle: #64748b;
+  --text-main: #18181b;
+  --text-muted: #71717a;
+  --text-faint: #a1a1aa;
+  --text-subtle: #71717a;
   --text-on-dark: #ffffff;
   --white: #ffffff;
-  --border: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --border-focus: var(--palette-indigo-500);
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --border-focus: var(--palette-indigo-700);
 
-  /* ----- Gradients ----- */
-  --gradient-accent: linear-gradient(135deg, var(--palette-indigo-500) 0%, var(--palette-indigo-700) 100%);
-  --gradient-accent-soft: linear-gradient(135deg, var(--palette-indigo-400) 0%, var(--palette-violet-600) 100%);
-  --gradient-warm: linear-gradient(135deg, var(--palette-violet-500) 0%, var(--palette-fuchsia-500) 100%);
-  --gradient-cool: linear-gradient(135deg, var(--palette-cyan-500) 0%, var(--palette-indigo-600) 100%);
-  --gradient-dawn: linear-gradient(135deg, var(--palette-rose-500) 0%, var(--palette-amber-500) 100%);
-  --gradient-mesh: linear-gradient(145deg, #0a0f1c 0%, var(--palette-indigo-950) 38%, var(--palette-indigo-900) 72%, #1a0b2e 100%);
-  --gradient-shell: linear-gradient(165deg, #070b14 0%, var(--palette-indigo-950) 32%, var(--palette-indigo-800) 62%, #0f172a 100%);
+  /* ----- Gradients (monochrome) ----- */
+  --gradient-accent: linear-gradient(135deg, #52525b 0%, #27272a 100%);
+  --gradient-accent-soft: linear-gradient(135deg, #71717a 0%, #3f3f46 100%);
+  --gradient-warm: linear-gradient(135deg, #404040 0%, #27272a 100%);
+  --gradient-cool: linear-gradient(135deg, #52525b 0%, #18181b 100%);
+  --gradient-dawn: linear-gradient(135deg, #3f3f46 0%, #52525b 100%);
+  --gradient-mesh: linear-gradient(145deg, #000000 0%, #09090b 40%, #18181b 75%, #000000 100%);
+  --gradient-shell: linear-gradient(165deg, #000000 0%, #09090b 32%, #27272a 62%, #0a0a0a 100%);
 
-  /* ----- Glass (rgba, any theme) ----- */
+  /* ----- Glass ----- */
   --glass-white-25: rgba(255, 255, 255, 0.25);
   --glass-white-22: rgba(255, 255, 255, 0.22);
   --glass-white-18: rgba(255, 255, 255, 0.18);
@@ -96,25 +96,25 @@
   --glass-white-08: rgba(255, 255, 255, 0.08);
   --glass-white-06: rgba(255, 255, 255, 0.06);
   --glass-white-04: rgba(255, 255, 255, 0.04);
-  --glass-indigo-glow: rgba(99, 102, 241, 0.35);
-  --glass-violet-glow: rgba(139, 92, 246, 0.3);
-  --glass-cyan-glow: rgba(34, 211, 238, 0.28);
-  --glass-rose-glow: rgba(244, 63, 94, 0.22);
-  --shadow-accent: 0 10px 32px rgba(99, 102, 241, 0.42);
-  --shadow-accent-hover: 0 14px 44px rgba(99, 102, 241, 0.52);
+  --glass-indigo-glow: rgba(255, 255, 255, 0.14);
+  --glass-violet-glow: rgba(255, 255, 255, 0.1);
+  --glass-cyan-glow: rgba(255, 255, 255, 0.08);
+  --glass-rose-glow: rgba(0, 0, 0, 0.28);
+  --shadow-accent: 0 10px 32px rgba(0, 0, 0, 0.35);
+  --shadow-accent-hover: 0 14px 44px rgba(0, 0, 0, 0.48);
 
-  /* ----- Data / charts (categorical) ----- */
-  --chart-1: var(--palette-indigo-400);
-  --chart-2: var(--palette-cyan-400);
-  --chart-3: var(--palette-violet-400);
-  --chart-4: var(--palette-emerald-400);
-  --chart-5: var(--palette-amber-400);
-  --chart-6: var(--palette-fuchsia-400);
-  --chart-7: var(--palette-rose-400);
-  --chart-8: var(--palette-sky-400);
-  --chart-9: var(--palette-teal-400);
+  /* ----- Charts (grey steps for contrast) ----- */
+  --chart-1: #e5e5e5;
+  --chart-2: #d4d4d8;
+  --chart-3: #a1a1aa;
+  --chart-4: #737373;
+  --chart-5: #52525b;
+  --chart-6: #404040;
+  --chart-7: #27272a;
+  --chart-8: #18181b;
+  --chart-9: #fafafa;
 
-  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
   --header-height: 70px;
   --sidebar-width: 260px;
 }
@@ -208,8 +208,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 .status-ready {
-  background-color: var(--palette-indigo-50);
-  color: var(--palette-violet-600);
+  background-color: var(--surface-2);
+  color: var(--palette-indigo-800);
 }
 
 .btn {
@@ -289,14 +289,15 @@ tr:hover td {
   gap: 12px;
   padding: 12px 16px;
   border-radius: 8px;
-  color: #CBD5E1;
+  color: #a1a1aa;
   transition: all 0.2s;
   margin-bottom: 4px;
 }
 
-.sidebar-link:hover, .sidebar-link.active {
-  background-color: rgba(99, 102, 241, 0.2);
-  color: white;
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--white);
 }
 
 .sidebar-link svg {
@@ -420,7 +421,7 @@ tr:hover td {
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: #e2e8f0;
+  color: var(--surface-1);
   margin-bottom: 8px;
 }
 
@@ -453,26 +454,21 @@ tr:hover td {
 .admin-app {
   position: relative;
   isolation: isolate;
-  /* Typography */
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --text-inverse: #0f172a;
-  /* Headings on dark */
-  --primary: var(--palette-indigo-100);
-  --primary-soft: var(--palette-indigo-200);
-  /* Interactive brand */
-  --accent: var(--palette-indigo-400);
-  --accent-muted: var(--palette-indigo-500);
-  --accent-secondary: var(--palette-cyan-400);
-  --accent-tertiary: var(--palette-violet-400);
-  --accent-warm: var(--palette-fuchsia-400);
-  /* Semantic on dark */
-  --success: var(--palette-emerald-400);
-  --warning: var(--palette-amber-400);
-  --danger: var(--palette-rose-400);
-  --info: var(--palette-sky-400);
-  /* Chrome */
+  --text-main: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-subtle: #737373;
+  --text-inverse: #09090b;
+  --primary: #fafafa;
+  --primary-soft: #e4e4e7;
+  --accent: #d4d4d8;
+  --accent-muted: #a1a1aa;
+  --accent-secondary: #d4d4d8;
+  --accent-tertiary: #a3a3a3;
+  --accent-warm: #e5e5e5;
+  --success: #e5e5e5;
+  --warning: #a3a3a3;
+  --danger: #d4d4d4;
+  --info: #a1a1aa;
   --border: var(--glass-white-14);
   --border-strong: var(--glass-white-18);
   --card-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
@@ -530,7 +526,7 @@ tr:hover td {
     135deg,
     var(--glass-white-12) 0%,
     var(--glass-white-04) 42%,
-    rgba(99, 102, 241, 0.1) 100%
+    rgba(255, 255, 255, 0.06) 100%
   );
   backdrop-filter: blur(26px) saturate(175%);
   -webkit-backdrop-filter: blur(26px) saturate(175%);
@@ -598,8 +594,8 @@ tr:hover td {
 }
 
 .admin-app .glass-plate-alert {
-  background: linear-gradient(135deg, var(--glass-rose-glow), rgba(127, 29, 29, 0.22));
-  border: 1px solid color-mix(in srgb, var(--palette-rose-400) 45%, transparent);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.22));
+  border: 1px solid var(--glass-white-14);
 }
 
 /* Tables */
@@ -742,37 +738,37 @@ tr:hover td {
   border-color: var(--glass-white-18);
 }
 
-/* Status chips on dark */
+/* Status chips on dark (greyscale) */
 .admin-app .status-active,
 .admin-app .status-completed {
-  background: color-mix(in srgb, var(--palette-emerald-500) 22%, transparent);
-  color: var(--palette-emerald-400);
-  border: 1px solid color-mix(in srgb, var(--palette-emerald-400) 42%, transparent);
+  background: color-mix(in srgb, var(--white) 14%, transparent);
+  color: #e5e5e5;
+  border: 1px solid var(--glass-white-18);
 }
 
 .admin-app .status-inactive,
 .admin-app .status-cancelled {
-  background: color-mix(in srgb, var(--palette-rose-500) 20%, transparent);
-  color: var(--palette-rose-400);
-  border: 1px solid color-mix(in srgb, var(--palette-rose-400) 38%, transparent);
+  background: color-mix(in srgb, var(--white) 6%, transparent);
+  color: #a1a1aa;
+  border: 1px solid var(--glass-white-10);
 }
 
 .admin-app .status-pending {
-  background: color-mix(in srgb, var(--palette-amber-500) 22%, transparent);
-  color: var(--palette-amber-400);
-  border: 1px solid color-mix(in srgb, var(--palette-amber-400) 42%, transparent);
+  background: color-mix(in srgb, var(--white) 10%, transparent);
+  color: #d4d4d8;
+  border: 1px solid var(--glass-white-14);
 }
 
 .admin-app .status-preparing {
-  background: color-mix(in srgb, var(--palette-sky-500) 22%, transparent);
-  color: var(--palette-sky-400);
-  border: 1px solid color-mix(in srgb, var(--palette-sky-400) 38%, transparent);
+  background: color-mix(in srgb, var(--white) 8%, transparent);
+  color: #c4c4c4;
+  border: 1px solid var(--glass-white-12);
 }
 
 .admin-app .status-ready {
-  background: color-mix(in srgb, var(--palette-violet-500) 22%, transparent);
-  color: var(--palette-violet-400);
-  border: 1px solid color-mix(in srgb, var(--palette-violet-400) 38%, transparent);
+  background: color-mix(in srgb, var(--white) 12%, transparent);
+  color: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 /* Modal overlay */

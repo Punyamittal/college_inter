@@ -14,9 +14,9 @@ const RecentActivityFeed = ({ activities = [] }) => {
   };
 
   const getColor = (action) => {
-    if (action.includes('created')) return '#10B981';
-    if (action.includes('deleted') || action.includes('deactivated')) return '#EF4444';
-    return '#6366F1';
+    if (action.includes('created')) return '#d4d4d8';
+    if (action.includes('deleted') || action.includes('deactivated')) return '#737373';
+    return '#a3a3a3';
   };
 
   return (
@@ -41,7 +41,7 @@ const RecentActivityFeed = ({ activities = [] }) => {
                     top: '40px',
                     width: '2px',
                     height: 'calc(100% - 16px)',
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.2), rgba(99,102,241,0.15))',
+                    background: 'linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.06))',
                   }}
                 />
               )}

@@ -45,19 +45,19 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
 
   return (
     <div className="admin-sidebar" style={sidebarStyle}>
-      <div style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #1E293B' }}>
+      <div style={{ padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div
             style={{
               width: '36px',
               height: '36px',
               borderRadius: '12px',
-              background: 'linear-gradient(145deg, rgba(99,102,241,0.9) 0%, rgba(79,70,229,0.95) 100%)',
+              background: 'var(--gradient-accent)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#fff',
-              boxShadow: '0 8px 24px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255,255,255,0.25)',
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.15)',
             }}
           >
             <Package size={20} />
@@ -97,7 +97,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
         ))}
       </nav>
 
-      <div style={{ padding: '20px 12px', borderTop: '1px solid #1E293B' }}>
+      <div style={{ padding: '20px 12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
         <button
           onClick={handleLogout}
           className="nav-pill"
@@ -108,14 +108,14 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
             gap: '12px',
             padding: '12px 16px',
             borderRadius: '10px',
-            border: '1px solid rgba(239, 68, 68, 0.25)',
-            background: 'rgba(239, 68, 68, 0.08)',
-            color: '#FCA5A5',
+            border: '1px solid rgba(255, 255, 255, 0.14)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            color: '#d4d4d8',
             cursor: 'pointer',
             transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.18)'
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'
             e.currentTarget.style.transform = 'translateX(4px)'
           }}
           onMouseLeave={(e) => {
