@@ -76,7 +76,7 @@ const TopBar = ({ toggleSidebar }) => {
                alignItems: 'center',
                justifyContent: 'center',
                fontWeight: 'bold',
-               boxShadow: '0 6px 18px rgba(99, 102, 241, 0.45)',
+               boxShadow: '0 6px 18px rgba(0, 0, 0, 0.35)',
              }}
            >
               {admin?.email?.charAt(0).toUpperCase()}

@@ -25,8 +25,8 @@ const Login = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#1E1B4B',
-      backgroundImage: `linear-gradient(rgba(30, 27, 75, 0.95), rgba(30, 27, 75, 0.95)), url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')`,
+      backgroundColor: '#18181b',
+      backgroundImage: `linear-gradient(rgba(24, 24, 27, 0.92), rgba(24, 24, 27, 0.92)), url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')`,
       backgroundSize: 'cover',
       padding: '24px'
     }}>
@@ -43,7 +43,7 @@ const Login = () => {
           <div style={{
             width: '64px',
             height: '64px',
-            backgroundColor: '#6366F1',
+            backgroundColor: '#3f3f46',
             borderRadius: '16px',
             display: 'flex',
             alignItems: 'center',
@@ -124,22 +124,22 @@ const Login = () => {
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <a href="#" style={{ fontSize: '13px', color: '#6366F1', fontWeight: '500' }}>Forgot password?</a>
+            <a href="#" style={{ fontSize: '13px', color: '#d4d4d8', fontWeight: '500' }}>Forgot password?</a>
           </div>
 
           <button 
             type="submit" 
             style={{
               marginTop: '12px',
-              backgroundColor: '#6366F1',
-              color: 'white',
+              backgroundColor: '#fafafa',
+              color: '#18181b',
               padding: '16px',
               borderRadius: '12px',
               fontSize: '16px',
               fontWeight: '600',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 10px 15px -3px rgba(99, 102, 241, 0.4)'
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.35)'
             }}
           >
             Access Dashboard

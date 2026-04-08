@@ -30,12 +30,12 @@ const ForgotPassword = () => {
               height: '56px',
               borderRadius: '16px',
               margin: '0 auto 16px',
-              background: 'linear-gradient(145deg, rgba(99,102,241,0.35), rgba(79,70,229,0.2))',
+              background: 'linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05))',
               border: '1px solid rgba(255,255,255,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#a5b4fc',
+              color: '#d4d4d8',
             }}
           >
             <Lock size={26} />
@@ -53,12 +53,12 @@ const ForgotPassword = () => {
             <div
               style={{
                 padding: '18px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                color: '#6ee7b7',
+                background: 'rgba(255, 255, 255, 0.08)',
+                color: '#e5e5e5',
                 borderRadius: '12px',
                 fontSize: '14px',
                 marginBottom: '24px',
-                border: '1px solid rgba(52, 211, 153, 0.35)',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
               }}
             >
               If that email exists in our system, a reset link has been sent.
@@ -70,7 +70,7 @@ const ForgotPassword = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                color: '#a5b4fc',
+                color: '#d4d4d8',
                 fontWeight: '600',
                 textDecoration: 'none',
               }}

@@ -40,7 +40,7 @@ const ChangePassword = () => {
     setLoading(false);
   };
 
-  const getStrengthColor = (s) => ['#EF4444', '#F97316', '#FBBF24', '#10B981', '#059669'][s];
+  const getStrengthColor = (s) => ['#525252', '#737373', '#a1a1aa', '#d4d4d8', '#f5f5f5'][s];
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto' }}>
@@ -50,14 +50,14 @@ const ChangePassword = () => {
       </div>
 
       <div className="card" style={{ padding: '40px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px', color: '#a5b4fc' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px', color: '#d4d4d8' }}>
           <ShieldCheck size={28} />
           <h3 style={{ fontSize: '20px', fontWeight: '700', color: 'var(--text-main)' }}>Update Password</h3>
         </div>
 
-        <div className="glass-plate" style={{ padding: '16px', marginBottom: '32px', display: 'flex', gap: '12px', borderColor: 'rgba(129, 140, 248, 0.35)' }}>
-          <AlertCircle size={20} color="#a5b4fc" style={{ flexShrink: 0 }} />
-          <p style={{ fontSize: '13px', color: '#c7d2fe', lineHeight: '1.5' }}>
+        <div className="glass-plate" style={{ padding: '16px', marginBottom: '32px', display: 'flex', gap: '12px', borderColor: 'rgba(255, 255, 255, 0.14)' }}>
+          <AlertCircle size={20} color="#a1a1aa" style={{ flexShrink: 0 }} />
+          <p style={{ fontSize: '13px', color: '#d4d4d8', lineHeight: '1.5' }}>
             <strong>Security Policy:</strong> Passwords must be at least 12 characters and score &quot;Strong&quot; (3/4) on our complexity meter to protect system integrity.
           </p>
         </div>
@@ -97,7 +97,7 @@ const ChangePassword = () => {
                     {newPassword.length > 0 ? ['Very Weak', 'Weak', 'So-so', 'Strong', 'Excellent!'][score] : 'Enter a password'}
                  </span>
                  {score < 3 && newPassword.length > 0 && (
-                   <span style={{ fontSize: '11px', color: '#EF4444', fontWeight: '600' }}>Requirements not met</span>
+                   <span style={{ fontSize: '11px', color: '#a1a1aa', fontWeight: '600' }}>Requirements not met</span>
                  )}
               </div>
             </div>

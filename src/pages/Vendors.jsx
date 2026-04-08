@@ -31,7 +31,7 @@ const Vendors = () => {
   if (loading)
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
-        <Loader2 className="animate-spin" size={40} color="#a5b4fc" />
+        <Loader2 className="animate-spin" size={40} color="#a1a1aa" />
       </div>
     );
 

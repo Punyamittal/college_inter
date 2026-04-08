@@ -77,18 +77,18 @@ const Shops = () => {
                 <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>{selectedShop.name}</h2>
                 <div style={{ display: 'flex', gap: '16px', fontSize: '14px', opacity: 0.9 }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><MapPin size={14} />{selectedShop.locations?.name}</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Star size={14} fill="#FFD700" color="#FFD700" />4.8 Rating</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}><Star size={14} fill="#d4d4d8" color="#d4d4d8" />4.8 Rating</span>
                 </div>
              </div>
              
              <div style={{ overflowY: 'auto', padding: '32px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                    <div className="glass-plate" style={{ padding: '16px', display: 'flex', gap: '12px', alignItems: 'center' }}>
-                      <Package size={20} color="#a5b4fc" />
+                      <Package size={20} color="#d4d4d8" />
                       <div><p style={{ fontSize: '18px', fontWeight: '800' }}>{shopStats.item_count}</p><p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Catalog Items</p></div>
                    </div>
                    <div className="glass-plate" style={{ padding: '16px', display: 'flex', gap: '12px', alignItems: 'center' }}>
-                      <DollarSign size={20} color="#6ee7b7" />
+                      <DollarSign size={20} color="#a3a3a3" />
                       <div><p style={{ fontSize: '18px', fontWeight: '800' }}>{shopStats.order_count}</p><p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Orders</p></div>
                    </div>
                 </div>
@@ -100,7 +100,7 @@ const Shops = () => {
                          {catalogItems.map(item => (
                             <div key={item.id} className="glass-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', borderRadius: '12px' }}>
                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                  <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(99,102,241,0.2)', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Tag size={16} color="#a5b4fc" /></div>
+                                  <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Tag size={16} color="#d4d4d8" /></div>
                                   <div>
                                      <p style={{ fontWeight: '600', fontSize: '14px' }}>{item.name}</p>
                                      <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{item.categories?.name || 'General'}</p>

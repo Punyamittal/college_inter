@@ -44,7 +44,7 @@ const OrderFeedCard = ({ order }) => (
 
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #F1F5F9', paddingTop: '12px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#6366F115', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: 'rgba(0,0,0,0.06)', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <User size={12} />
         </div>
         <span style={{ fontSize: '12px', fontWeight: '500' }}>{order.student}</span>
@@ -82,8 +82,8 @@ const OrderMonitor = () => {
         <div>
           <h1 style={{ fontSize: '24px', color: 'var(--primary)', display: 'flex', alignItems: 'center', gap: '10px' }}>
             Live Feed
-            <div style={{ padding: '4px 10px', backgroundColor: '#FEE2E2', color: '#EF4444', borderRadius: '20px', fontSize: '11px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-              <div style={{ width: '6px', height: '6px', backgroundColor: '#EF4444', borderRadius: '50%' }}></div>
+            <div style={{ padding: '4px 10px', backgroundColor: '#e4e4e7', color: '#27272a', borderRadius: '20px', fontSize: '11px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <div style={{ width: '6px', height: '6px', backgroundColor: '#525252', borderRadius: '50%' }}></div>
               LIVE
             </div>
           </h1>
@@ -100,7 +100,7 @@ const OrderMonitor = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', overflow: 'hidden' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 8px' }}>
             <h3 style={{ fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Bell size={18} color="var(--warning)" />
+              <Bell size={18} color="var(--text-muted)" />
               Incoming & Active ({liveOrders.length})
             </h3>
             <div style={{ display: 'flex', gap: '8px' }}>

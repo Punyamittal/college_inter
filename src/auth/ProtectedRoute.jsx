@@ -19,8 +19,8 @@ const FullPageSpinner = ({ message = 'Verifying credentials...' }) => (
         style={{
           width: '48px',
           height: '48px',
-          border: '4px solid rgba(129, 140, 248, 0.35)',
-          borderTopColor: '#a5b4fc',
+          border: '4px solid rgba(255, 255, 255, 0.15)',
+          borderTopColor: '#e5e5e5',
           borderRadius: '50%',
         }}
         className="animate-spin"

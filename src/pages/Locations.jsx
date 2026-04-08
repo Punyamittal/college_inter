@@ -32,7 +32,7 @@ const Locations = () => {
   if (loading)
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
-        <Loader2 className="animate-spin" size={40} color="#a5b4fc" />
+        <Loader2 className="animate-spin" size={40} color="#a1a1aa" />
       </div>
     );
 
@@ -61,7 +61,7 @@ const Locations = () => {
           {filteredLocations.map((loc) => (
             <div key={loc.id} className="card interactive-lift" style={{ padding: '24px', cursor: 'default' }}>
                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: '#6366F115', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)' }}><MapPin size={28} /></div>
+                  <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent)' }}><MapPin size={28} /></div>
                   <div style={{ flex: 1 }}>
                      <h3 style={{ fontSize: '17px', fontWeight: '700', color: 'var(--primary)', marginBottom: '4px' }}>{loc.name}</h3>
                      <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '16px' }}>{loc.description || 'Verified retail segment.'}</p>

@@ -38,7 +38,7 @@ const ResetPassword = () => {
     }
   }
 
-  const getStrengthColor = (s) => ['#EF4444', '#F97316', '#FBBF24', '#10B981', '#059669'][s]
+  const getStrengthColor = (s) => ['#525252', '#737373', '#a1a1aa', '#d4d4d8', '#f5f5f5'][s]
 
   return (
     <div className="auth-ambient">
@@ -50,12 +50,12 @@ const ResetPassword = () => {
               height: '56px',
               borderRadius: '16px',
               margin: '0 auto 16px',
-              background: 'linear-gradient(145deg, rgba(99,102,241,0.35), rgba(79,70,229,0.2))',
+              background: 'linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05))',
               border: '1px solid rgba(255,255,255,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#a5b4fc',
+              color: '#d4d4d8',
             }}
           >
             <ShieldCheck size={28} />
@@ -138,7 +138,7 @@ const ResetPassword = () => {
             {isSubmitting ? 'Updating...' : 'Set New Password'}
           </button>
           {score < 3 && password.length > 0 && (
-            <p style={{ marginTop: '12px', fontSize: '12px', color: '#fca5a5', textAlign: 'center', fontWeight: '500' }}>
+            <p style={{ marginTop: '12px', fontSize: '12px', color: '#a1a1aa', textAlign: 'center', fontWeight: '500' }}>
               Password is not strong enough for admin accounts.
             </p>
           )}

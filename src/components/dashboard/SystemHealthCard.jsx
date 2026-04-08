@@ -1,6 +1,8 @@
 import { Globe, ShoppingCart, Zap } from 'lucide-react';
 
-const SystemHealthCard = ({ stats = { totalOrders: 0, totalRevenue: 0, activeShops: new Set() } }) => {
+const SystemHealthCard = ({
+  stats = { ordersToday: 0, revenueToday: 0, activeShops: new Set() },
+}) => {
 
   return (
     <div className="card" style={{ height: 'fit-content' }}>
@@ -31,11 +33,13 @@ const SystemHealthCard = ({ stats = { totalOrders: 0, totalRevenue: 0, activeSho
             <span style={{ fontSize: '13px', fontWeight: '600' }}>Daily Activity</span>
           </div>
           <p style={{ fontSize: '20px', fontWeight: '700' }}>
-            {stats.totalOrders}{' '}
+            {stats.ordersToday}{' '}
             <span style={{ fontSize: '12px', fontWeight: '400', color: 'var(--text-muted)' }}>Orders Today</span>
           </p>
-          <p style={{ marginTop: '12px', fontSize: '14px', fontWeight: '600', color: '#d4d4d8' }}>₹{stats.totalRevenue.toLocaleString()}</p>
-          <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Total Revenue</p>
+          <p style={{ marginTop: '12px', fontSize: '14px', fontWeight: '600', color: '#d4d4d8' }}>
+            ₹{stats.revenueToday.toLocaleString()}
+          </p>
+          <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Today&apos;s revenue</p>
         </div>
       </div>
     </div>

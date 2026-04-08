@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
   const navItems = [
     { name: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
     { name: 'Analytics', icon: BarChart2, path: '/analytics' },
-    { name: 'Orders', icon: MonitorPlay, path: '/orders' },
+    { name: 'Order history', icon: MonitorPlay, path: '/orders' },
     { name: 'Locations', icon: MapPin, path: '/locations' },
     { name: 'Shops', icon: Store, path: '/shops' },
     { name: 'Categories', icon: Layers, path: '/categories' },
@@ -119,7 +119,7 @@ const Sidebar = ({ isOpen, toggleSidebar, isMobile }) => {
             e.currentTarget.style.transform = 'translateX(4px)'
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgba(239, 68, 68, 0.08)'
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)'
             e.currentTarget.style.transform = 'none'
           }}
         >

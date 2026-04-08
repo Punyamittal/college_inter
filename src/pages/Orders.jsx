@@ -1,41 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import { ListOrdered, Search, Filter, ShoppingBag, Clock, MoreVertical, Loader2 } from 'lucide-react';
-import { supabase } from '../lib/supabaseClient';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Search, Loader2 } from 'lucide-react';
+import { supabaseAdmin } from '../lib/supabaseAdmin';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchOrders = async () => {
-        const { data, error } = await supabase
-            .from('orders')
-            .select(`
-                *,
-                shops (name),
-                profiles:user_id (full_name)
-            `)
-            .order('created_at', { ascending: false });
-        
-        if (data) setOrders(data);
-        setLoading(false);
+      setError(null);
+      let { data, error: qErr } = await supabaseAdmin
+        .from('orders')
+        .select(
+          `
+          *,
+          shops (name),
+          student:profiles!student_id (full_name)
+        `
+        )
+        .order('created_at', { ascending: false });
+
+      if (qErr) {
+        const minimal = await supabaseAdmin
+          .from('orders')
+          .select('*, shops (name)')
+          .order('created_at', { ascending: false });
+        if (minimal.error) {
+          console.error('[Orders]', qErr.message);
+          setError(minimal.error.message);
+          setOrders([]);
+        } else {
+          setError(
+            'Customer names unavailable (check orders → profiles FK). Showing shop and amounts only.'
+          );
+          setOrders(minimal.data || []);
+        }
+      } else {
+        setOrders(data || []);
+      }
+      setLoading(false);
     };
     fetchOrders();
   }, []);
 
+  const filteredOrders = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase();
+    if (!q) return orders;
+    return orders.filter((order) => {
+      const idShort = (order.id || '').toString().toLowerCase();
+      const shop = (order.shops?.name || '').toLowerCase();
+      const customer = (order.student?.full_name || '').toLowerCase();
+      const status = (order.status || '').toLowerCase();
+      return idShort.includes(q) || shop.includes(q) || customer.includes(q) || status.includes(q);
+    });
+  }, [orders, searchTerm]);
+
   if (loading)
     return (
       <div style={{ padding: '60px', display: 'flex', justifyContent: 'center' }}>
-        <Loader2 className="animate-spin" size={40} color="#a5b4fc" />
+        <Loader2 className="animate-spin" size={40} color="#a1a1aa" />
       </div>
     );
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <div>
-        <h1 style={{ fontSize: '24px', color: 'var(--primary)' }}>Order Monitor ({orders.length})</h1>
-        <p style={{ color: 'var(--text-muted)' }}>Real-time stream of all transactions across campus food outlets.</p>
+        <h1 style={{ fontSize: '24px', color: 'var(--primary)' }}>Order history ({orders.length})</h1>
+        <p style={{ color: 'var(--text-muted)' }}>All campus transactions, newest first.</p>
       </div>
+
+      {error && (
+        <div
+          className="glass-plate-alert"
+          style={{ padding: '12px 16px', fontSize: '13px', color: 'var(--text-main)' }}
+          role="alert"
+        >
+          Could not load orders: {error}. Check the service key and that <code>orders.student_id</code> links to{' '}
+          <code>profiles</code>.
+        </div>
+      )}
 
       <div className="card" style={{ padding: '0' }}>
         <div style={{ padding: '20px', borderBottom: '1px solid var(--border)', display: 'flex', gap: '16px' }}>
@@ -43,9 +88,11 @@ const Orders = () => {
               <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
               <input
                 type="text"
-                placeholder="Search by Order ID, Shop, or Customer..."
+                placeholder="Search by Order ID, Shop, Customer, or status..."
                 className="glass-input"
                 style={{ width: '100%', paddingLeft: '40px', height: '42px' }}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
            </div>
         </div>
@@ -63,11 +110,13 @@ const Orders = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {filteredOrders.map((order) => (
                 <tr key={order.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                  <td style={{ padding: '20px', fontFamily: 'monospace', fontSize: '13px' }}>#{order.id.slice(0, 8)}</td>
+                  <td style={{ padding: '20px', fontFamily: 'monospace', fontSize: '13px' }}>
+                    #{String(order.id ?? '').slice(0, 8)}
+                  </td>
                   <td style={{ padding: '20px', fontWeight: '600' }}>{order.shops?.name || 'TBD'}</td>
-                  <td style={{ padding: '20px' }}>{order.profiles?.full_name || 'Anonymous User'}</td>
+                  <td style={{ padding: '20px' }}>{order.student?.full_name || 'Anonymous'}</td>
                   <td style={{ padding: '20px', fontWeight: '700' }}>₹{order.total_amount || 0}</td>
                   <td style={{ padding: '20px' }}>
                      <span className={`status-badge status-${order.status?.toLowerCase() || 'pending'}`}>
@@ -79,8 +128,14 @@ const Orders = () => {
                   </td>
                 </tr>
               ))}
-              {orders.length === 0 && (
-                  <tr><td colSpan="6" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>Monitoring live transactions... No orders registered yet.</td></tr>
+              {!loading && filteredOrders.length === 0 && (
+                <tr>
+                  <td colSpan="6" style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                    {orders.length === 0
+                      ? 'No orders in the database yet.'
+                      : 'No orders match your search.'}
+                  </td>
+                </tr>
               )}
             </tbody>
           </table>

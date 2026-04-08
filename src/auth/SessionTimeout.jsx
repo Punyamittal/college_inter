@@ -27,14 +27,14 @@ const SessionTimeoutWarning = ({ secondsLeft, onStay, onLogout }) => (
         style={{
           width: '56px',
           height: '56px',
-          background: 'rgba(239, 68, 68, 0.2)',
+          background: 'rgba(255, 255, 255, 0.08)',
           borderRadius: '50%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 20px',
-          color: '#fca5a5',
-          border: '1px solid rgba(248, 113, 113, 0.35)',
+          color: '#d4d4d8',
+          border: '1px solid rgba(255, 255, 255, 0.18)',
         }}
       >
         <svg fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" style={{ width: '28px', height: '28px' }}>
@@ -50,7 +50,7 @@ const SessionTimeoutWarning = ({ secondsLeft, onStay, onLogout }) => (
       </h3>
       <p className="auth-sub" style={{ fontSize: '15px', lineHeight: '1.5', marginBottom: '24px' }}>
         You will be signed out in{' '}
-        <span style={{ fontWeight: '700', color: '#fca5a5' }}>{secondsLeft} seconds</span> due to inactivity. Do you want to stay
+        <span style={{ fontWeight: '700', color: '#f5f5f5' }}>{secondsLeft} seconds</span> due to inactivity. Do you want to stay
         signed in?
       </p>
       <div style={{ display: 'flex', gap: '12px' }}>

@@ -31,14 +31,14 @@ const LockoutTimer = ({ lockedUntil, onExpire }) => {
     <div
       style={{
         padding: '14px',
-        background: 'rgba(239, 68, 68, 0.15)',
-        color: '#fecaca',
+        background: 'rgba(255, 255, 255, 0.08)',
+        color: '#e5e5e5',
         borderRadius: '12px',
         fontSize: '14px',
         fontWeight: '600',
         textAlign: 'center',
         marginBottom: '24px',
-        border: '1px solid rgba(248, 113, 113, 0.35)',
+        border: '1px solid rgba(255, 255, 255, 0.18)',
         backdropFilter: 'blur(8px)',
       }}
     >
@@ -88,14 +88,14 @@ const Login = () => {
               width: '64px',
               height: '64px',
               borderRadius: '18px',
-              background: 'linear-gradient(145deg, rgba(99,102,241,0.35), rgba(79,70,229,0.2))',
+              background: 'linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05))',
               border: '1px solid rgba(255,255,255,0.2)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 20px',
-              color: '#a5b4fc',
-              boxShadow: '0 12px 40px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255,255,255,0.2)',
+              color: '#d4d4d8',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
             }}
           >
             <Lock size={30} />
@@ -122,7 +122,7 @@ const Login = () => {
               border: '1px solid rgba(255,255,255,0.12)',
             }}
           >
-            <ShieldAlert size={14} color="#f87171" />
+            <ShieldAlert size={14} color="#a1a1aa" />
             System monitored for unauthorised access
           </div>
         </div>
@@ -191,7 +191,7 @@ const Login = () => {
         </form>
 
         <div style={{ marginTop: '24px', textAlign: 'center' }}>
-          <a href="/forgot-password" style={{ color: '#a5b4fc', fontSize: '14px', fontWeight: '600', textDecoration: 'none' }}>
+          <a href="/forgot-password" style={{ color: '#d4d4d8', fontSize: '14px', fontWeight: '600', textDecoration: 'none' }}>
             Forgotten password?
           </a>
         </div>

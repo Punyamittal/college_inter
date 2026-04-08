@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MapPin, Store, UserCheck, ShoppingBag, Loader2 } from 'lucide-react';
-import { supabase } from '../../lib/supabaseClient';
+import { supabaseAdmin } from '../../lib/supabaseAdmin';
 
 const QuickStatsGrid = () => {
   const [counts, setCounts] = useState({ locations: 0, shops: 0, vendors: 0, orders: 0 });
@@ -9,10 +9,10 @@ const QuickStatsGrid = () => {
   useEffect(() => {
     const fetchCounts = async () => {
         const [l, s, v, o] = await Promise.all([
-            supabase.from('locations').select('*', { count: 'exact', head: true }),
-            supabase.from('shops').select('*', { count: 'exact', head: true }),
-            supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('role', 'vendor'),
-            supabase.from('orders').select('*', { count: 'exact', head: true })
+            supabaseAdmin.from('locations').select('*', { count: 'exact', head: true }),
+            supabaseAdmin.from('shops').select('*', { count: 'exact', head: true }),
+            supabaseAdmin.from('profiles').select('*', { count: 'exact', head: true }).eq('role', 'vendor'),
+            supabaseAdmin.from('orders').select('*', { count: 'exact', head: true })
         ]);
 
         setCounts({

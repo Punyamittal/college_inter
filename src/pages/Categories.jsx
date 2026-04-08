@@ -7,28 +7,28 @@ const CategoriesGrid = ({ onDetail }) => {
   const [loading, setLoading] = useState(true);
 
   const categoryMeta = {
-    'Full Meals': { emoji: '🍱', color: '#FFEDD5' },
-    'Snacks': { emoji: '🍟', color: '#DBEAFE' },
-    'Beverages': { emoji: '☕', color: '#D1FAE5' },
-    'Desserts': { emoji: '🍰', color: '#F3E8FF' },
-    'Healthy': { emoji: '🥗', color: '#FEF3C7' },
-    'Fast Food': { emoji: '🍔', color: '#FEE2E2' },
-    'Sandwiches': { emoji: '🥪', color: '#FFEDD5' },
-    'Chaat Items': { emoji: '🥘', color: '#DBEAFE' },
-    'Pasta Menu': { emoji: '🍝', color: '#D1FAE5' },
-    'Italian Specials': { emoji: '🍕', color: '#F3E8FF' },
-    'Fries': { emoji: '🍟', color: '#FEE2E2' },
-    'Shawarma': { emoji: '🌯', color: '#FEF3C7' },
-    'Egg Items': { emoji: '🥚', color: '#DBEAFE' },
-    'Maggi': { emoji: '🍜', color: '#D1FAE5' },
-    'Rolls': { emoji: '🌯', color: '#F3E8FF' },
-    'Burgers': { emoji: '🍔', color: '#FEE2E2' },
-    'Omelette': { emoji: '🍳', color: '#FEF3C7' },
-    'Juices': { emoji: '🥤', color: '#D1FAE5' },
-    'Milkshakes': { emoji: '🥤', color: '#F3E8FF' },
-    'Lassi': { emoji: '🥛', color: '#DBEAFE' },
-    'Cold Drinks': { emoji: '🧊', color: '#DBEAFE' },
-    'Plates': { emoji: '🍽️', color: '#F3E8FF' },
+    'Full Meals': { emoji: '🍱', color: '#f4f4f5' },
+    'Snacks': { emoji: '🍟', color: '#e4e4e7' },
+    'Beverages': { emoji: '☕', color: '#d4d4d8' },
+    'Desserts': { emoji: '🍰', color: '#e5e5e5' },
+    'Healthy': { emoji: '🥗', color: '#f4f4f5' },
+    'Fast Food': { emoji: '🍔', color: '#d4d4d8' },
+    'Sandwiches': { emoji: '🥪', color: '#e4e4e7' },
+    'Chaat Items': { emoji: '🥘', color: '#f4f4f5' },
+    'Pasta Menu': { emoji: '🍝', color: '#e5e5e5' },
+    'Italian Specials': { emoji: '🍕', color: '#d4d4d8' },
+    'Fries': { emoji: '🍟', color: '#e4e4e7' },
+    'Shawarma': { emoji: '🌯', color: '#f4f4f5' },
+    'Egg Items': { emoji: '🥚', color: '#e5e5e5' },
+    'Maggi': { emoji: '🍜', color: '#d4d4d8' },
+    'Rolls': { emoji: '🌯', color: '#e4e4e7' },
+    'Burgers': { emoji: '🍔', color: '#f4f4f5' },
+    'Omelette': { emoji: '🍳', color: '#e5e5e5' },
+    'Juices': { emoji: '🥤', color: '#d4d4d8' },
+    'Milkshakes': { emoji: '🥤', color: '#e4e4e7' },
+    'Lassi': { emoji: '🥛', color: '#f4f4f5' },
+    'Cold Drinks': { emoji: '🧊', color: '#e5e5e5' },
+    'Plates': { emoji: '🍽️', color: '#d4d4d8' },
   };
 
   const fetchRealData = async () => {
@@ -40,7 +40,7 @@ const CategoriesGrid = ({ onDetail }) => {
         setCategories(cats.map(c => {
             const categoryItems = items.filter(i => i.category_id === c.id);
             const uniqueShops = new Set(categoryItems.map(i => i.shop_id));
-            const meta = categoryMeta[c.name] || { emoji: '🍴', color: '#F1F5F9' };
+            const meta = categoryMeta[c.name] || { emoji: '🍴', color: '#e4e4e7' };
             return {
                 id: c.id,
                 name: c.name,
@@ -61,7 +61,7 @@ const CategoriesGrid = ({ onDetail }) => {
   if (loading)
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
-        <Loader2 className="animate-spin" size={40} color="#a5b4fc" />
+        <Loader2 className="animate-spin" size={40} color="#a1a1aa" />
       </div>
     );
 
