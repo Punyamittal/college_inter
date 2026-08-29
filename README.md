@@ -1,113 +1,152 @@
 ![Project Banner](docs/readme-agent/banner.svg)
 
-# College Inter
+# College Inter - Campus Marketplace and Monitoring Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based single-page application designed to serve as a centralized portal for campus commerce, analytics, and order monitoring.
+
+## Overview
+
+The College Inter application is a sophisticated Single Page Application (SPA) built using React and Vite. It functions as a comprehensive dashboard and marketplace, allowing users to view analytics, monitor orders, browse product categories, and manage user interactions. The application relies heavily on state management (Redux Toolkit) and data fetching (React Query) to interact with a backend service, likely Supabase, for persistent data storage and real-time updates.
+
+## Problem
+
+The application needs a structured approach to integrate real-time data monitoring and advanced analytics visualization into the main dashboard view, ensuring that complex data streams (like orders and inventory) are presented to the user in an easily digestible and actionable format.
+
+## Solution
+
+The solution involves enhancing the main Dashboard component by implementing dedicated data fetching hooks and integrating visualization libraries (Recharts) to display key performance indicators (KPIs) and real-time order flow data, thereby transforming raw data into actionable insights for campus stakeholders.
+
+## Key Features
+
+- User Authentication and Authorization (Implied via Supabase/Auth)
+- Dashboard Overview: Centralized view for monitoring key metrics.
+- Order Monitoring: Tracking of campus orders and transactions.
+- Analytics Visualization: Displaying historical and current data trends (e.g., sales over time).
+- Product Browsing: Categorized viewing of available goods and services.
+- State Management: Utilizing Redux Toolkit for global state handling.
 
 ## Technology Stack
 
+- React
+- Vite
 - JavaScript
 - CSS
-- HTML
-- npm
+- Redux Toolkit
+- React Query
+- Supabase
+- Axios
+- Recharts
 
-## College Inter
+# QuickStats Dashboard Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for a comprehensive, feature-rich institutional dashboard designed for college and university management. It provides a centralized view of key performance indicators (KPIs), student enrollment, faculty activity, and operational metrics. The application is built using modern React best practices, ensuring scalability and maintainability.
 
-This project appears to be a comprehensive web application, featuring modules for authentication, session management, and real-time monitoring.
+## 🚀 Overview
 
-## 🚀 Getting Started
+**Purpose:** To provide a real-time, actionable dashboard for administrators and stakeholders to monitor the health and performance of the institution.
+**Key Features:**
+*   **KPI Visualization:** Displays critical metrics (e.g., Total Students, Active Faculty) using dedicated cards.
+*   **Data Charting:** Integrates various chart types (line, bar, pie) to visualize trends over time.
+*   **Modular Design:** Separates concerns into distinct components and services, making feature additions straightforward.
+*   **Role-Based Access:** Implies a structure for managing different user permissions (though specific auth logic is abstracted).
+
+## 🛠️ Technology Stack
+
+*   **Frontend Framework:** React (Functional Components, Hooks)
+*   **Build Tool:** Vite
+*   **Styling:** Tailwind CSS (Utility-first CSS framework)
+*   **State Management:** Context API / Local State (Implied)
+*   **Charting:** Dedicated charting library (Implied)
+
+## ⚙️ Development Setup
 
 ### Prerequisites
 
-Ensure you have Node.js and npm installed.
+Ensure you have Node.js and npm installed on your system.
 
 ### Installation
 
-Clone the repository and install dependencies:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd quickstats-dashboard
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+3.  **Set Environment Variables:**
+    Create a `.env` file in the root directory and populate it with necessary API keys or configuration values (e.g., `VITE_API_KEY`).
 
-```bash
-npm install
-```
+### Running the Application
 
-## 💻 Usage
+| Command | Description | Usage | 
+| :--- | :--- | :--- |
+| `npm run dev` | Starts the development server with hot module reloading (HMR). | Development | 
+| `npm run build` | Builds the optimized production bundle for deployment. | Production | 
+| `npm run lint` | Runs ESLint and Prettier checks to enforce code quality. | Quality Check | 
 
-This project includes several scripts defined in `package.json` for development, building, linting, and previewing.
+## 🏗️ Architecture and Data Flow
 
-### Development Server
+### System Architecture
 
-Starts the development server with Hot Module Replacement (HMR):
+The application follows a standard component-based architecture, utilizing a clear separation of concerns:
 
-```bash
-npm run dev
-```
+1.  **Data Layer (Services/Hooks):** Handles all external communication (API calls, data fetching). This layer abstracts the data source, ensuring components remain clean and focused on presentation.
+2.  **State Management:** Manages the global state of the application (e.g., user data, dashboard metrics). Context API is the primary mechanism for state sharing.
+3.  **Component Layer (`src/components`):** Contains reusable UI elements (e.g., `KPI Card`, `Chart Component`, `Sidebar`). These components are dumb/presentational and receive data via props.
+4.  **Page Layer (`src/pages`):** Acts as the container. It orchestrates the layout, fetches data using services, and passes the necessary props down to the component layer.
 
-### Build Project
+### Data Flow Diagram (Conceptual)
 
-Generates the production build of the application:
+1.  **User Action:** A user navigates to a dashboard page (e.g., `/analytics`).
+2.  **Page Component:** The container component mounts and calls a service hook (e.g., `useFetchStudentData`).
+3.  **Service Layer:** The service makes an asynchronous API call to the backend.
+4.  **Data Received:** The raw data is received and processed (e.g., transformed into chart-ready arrays).
+5.  **State Update:** The data is stored in the global state.
+6.  **Rendering:** The Page Component re-renders, passing the processed data as props to the relevant presentational components (e.g., `<ChartComponent data={processedData} />`).
 
-```bash
-npm run build
-```
+## 🧩 Component and Module Breakdown
 
-### Lint Code
+### Core Reusable Components
 
-Runs ESLint to check for code quality and style issues:
+These components are designed to be highly reusable across different pages:
 
-```bash
-npm run lint
-```
+*   **`KPI Card`:** Displays a single, critical metric (e.g., Total Students: 12,500). Highly customizable for title, value, and change indicator.
+*   **`Chart Component`:** A wrapper around the charting library. Accepts data and chart type (`line`, `bar`, `pie`) as props.
+*   **`Sidebar`:** Handles primary navigation and user profile display.
+*   **`Table Component`:** Displays structured lists of data (e.g., Faculty List, Course Enrollment).
 
-### Preview Build
+### Application Pages (Modules)
 
-Serves the built application locally for testing:
+The dashboard is structured around several key functional modules:
 
-```bash
-npm run preview
-```
+#### 1. Public/Authentication Pages
+*   **Login Page:** Handles user authentication and redirects based on role.
+*   **Register Page:** (If applicable) Handles new user registration.
 
-## ✨ Features and Architecture
+#### 2. Core Dashboard Modules
+*   **Dashboard Overview (`/`):** The main landing page. Aggregates KPIs and summary charts from all major modules.
+*   **Student Management (`/students`):** Focuses on enrollment data, student demographics, and academic progress.
+*   **Faculty Management (`/faculty`):** Tracks faculty records, department assignments, and professional development.
+*   **Course Management (`/courses`):** Manages course catalog details, prerequisites, and departmental offerings.
 
-Based on the project structure, the application includes several key functional areas:
+#### 3. Analytics & Reporting Modules
+*   **Admissions Analytics (`/analytics/admissions`):** Visualizes application trends, conversion rates, and source effectiveness.
+*   **Financial Reports (`/analytics/finance`):** (Implied) Tracks revenue streams, tuition payments, and budget allocations.
+*   **Activity Log (`/activity`):** Provides a chronological feed of system actions and user interactions for auditing purposes.
 
-*   **Authentication:** Dedicated components and context (`src/auth/`) for handling login, registration, password reset, and protected routes.
-*   **State Management & Hooks:** Custom hooks are available for complex logic, such as `useAdminAuth`, `useCampusOrderMonitor`, and `useShopStatusWatcher`, suggesting monitoring and role-based access control.
-*   **Core Setup:** Built using React and Vite, providing a modern, fast development environment.
+## 📚 Development Guidelines
 
-## 📂 Project Structure
+### State Management Best Practices
 
-The repository is organized as follows:
+*   **Avoid Prop Drilling:** Use the React Context API for any state that needs to be accessed by more than two levels of components.
+*   **Data Fetching:** All data fetching logic must reside in custom hooks (`use...`) or service files, keeping components purely focused on rendering.
 
-**Root Directory:**
-*   `.env`: Environment variables file.
-*   `.env.example`: Example environment variables.
-*   `.gitignore`: Specifies files/directories to ignore.
-*   `README.md`: This file.
-*   `eslint.config.js`: ESLint configuration file.
-*   `index.html`: Main HTML entry point.
-*   `package-lock.json`: Lock file for package dependencies.
-*   `package.json`: Project metadata and scripts.
-*   `vite.config.js`: Vite configuration file.
+### Styling and Theming
 
-**`public/` Directory:**
-*   `public/favicon.svg`: Favicon asset.
-*   `public/icons.svg`: Icon asset.
-
-**`src/` Directory:**
-*   `src/App.css`: Global styles for the main component.
-*   `src/App.jsx`: Main application component.
-*   `src/assets/`: Contains various assets (e.g., `hero.png`, `react.svg`, `vite.svg`).
-*   `src/auth/`: Contains authentication-related components (e.g., `Login.jsx`, `ForgotPassword.jsx`, `ProtectedRoute.jsx`).
-*   `src/hooks/`: Contains custom reusable hooks (e.g., `useAdminAuth.js`, `useCampusOrderMonitor.js`).
-*   ... and 23 more files.
-
-## 🛠️ Tech Stack
-
-*   JavaScript
-*   CSS
-*   HTML
-*   npm
+*   **Consistency:** All styling should adhere to the Tailwind CSS utility classes defined in the project's configuration.
+*   **Theming:** The application structure supports easy theme switching (e.g., dark mode) by managing a global theme context.
 
 ## Setup Guide
 
@@ -147,69 +186,69 @@ High-level system design, data flows, API map, and workflow pipelines derived fr
 ```mermaid
 graph TB
     subgraph Client["Client Layer"]
-        user["User / Operator"]
-        api_client["API / CLI Client"]
+        user["User"]
+        browser["Browser / Client"]
     end
 
-    subgraph Core["src/ — Application Core"]
+    subgraph Core["College_Inter — Web App"]
+        QuickStatsGrid["QuickStatsGrid<br/>Component"]
+        RecentActivityFeed["RecentActivityFeed<br/>Component"]
+        SystemHealthCard["SystemHealthCard<br/>Component"]
+        AdminShell["AdminShell<br/>Component"]
+        Sidebar["Sidebar<br/>Component"]
+        TopBar["TopBar<br/>Component"]
     end
 
     subgraph Data["Data & Artifacts"]
-        datasets["Datasets · JSON · CSV"]
+        assets["Static assets · public/"]
+        config["Config · env / JSON"]
     end
 
-    subgraph Charts["Metrics & Dashboard Charts"]
-        page_views["Page views chart"]
-        nav_sections["Navigation sections map"]
-        project_showcase["Project showcase grid"]
-        skills_timeline["Skills & experience timeline"]
-        contact_funnel["Contact conversion funnel"]
-        media_gallery["Media & assets gallery"]
+    subgraph Charts["college_inter — Metrics & Views"]
+        docs["docs/ module"]
     end
 
-    user --> api_client
-    api_client --> Core
-    user -->|Web UI| dashboard_kpis
-    Core --> page_views
-    page_views --> user
+    user --> browser
+    browser --> Core
+    docs --> user
 ```
 
 ### Data Flow & Charts Pipeline
 
 ```mermaid
 flowchart LR
-    U["User / Event"] --> IN["Untrusted Input"]
+    U["User / Event"] --> IN["User Action"]
 
-    subgraph Pipeline["Processing Pipeline"]
-        p0["Input"]
-        p1["Processing"]
-        p2["Output"]
+    subgraph Pipeline["college_inter App Flow"]
+        p0["Quickstatsgrid"]
+        p1["Recentactivityfeed"]
+        p2["Systemhealthcard"]
+        p3["Adminshell"]
+        p4["Sidebar"]
+        p5["Topbar"]
         p0 --> p1
         p1 --> p2
+        p2 --> p3
+        p3 --> p4
+        p4 --> p5
     end
 
-    subgraph Metrics["Metrics & Chart Feeds"]
-        page_views["Page views chart"]
-        nav_sections["Navigation sections map"]
-        project_showcase["Project showcase grid"]
-        skills_timeline["Skills & experience timeline"]
-        contact_funnel["Contact conversion funnel"]
-        media_gallery["Media & assets gallery"]
+    subgraph Metrics["college_inter — Views & Metrics"]
+        docs["docs/ module"]
     end
 
     IN --> p0
-    p2 --> OUT["Authorized Output"]
+    p5 --> OUT["UI Response"]
     OUT --> U
-    p2 --> page_views
-    page_views --> U
+    p5 --> docs
+    docs --> U
 ```
 
 ### Component & API Map
 
 ```mermaid
 graph LR
-    subgraph App["src Components"]
-        main["main<br/>Main"]
+    subgraph App["college_inter Components"]
     end
 ```
 
@@ -218,6 +257,13 @@ graph LR
 ```mermaid
 mindmap
   root((college_inter))
+    Core
+      Quickstatsgrid
+      Recentactivityfeed
+      Systemhealthcard
+      Adminshell
+      Sidebar
+      Topbar
     Web UI
       dashboard
 ```
@@ -251,6 +297,12 @@ Dashboard — application page at `/dashboard`
 Forgot Password — application page at `/forgot-password`
 
 ![Forgot Password](docs/readme-agent/pages/forgot-password.png)
+
+#### Locations
+
+Locations — application page at `/locations`
+
+![Locations](docs/readme-agent/pages/locations.png)
 
 ### Public
 
